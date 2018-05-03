@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
+		<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
+		<title>Stardew Profits</title>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
+	</head>
+	<body>
+
+		<div class="title">
+		
+		</div>
+
+		<script src="js/crops.js"> </script>
+		<script src="js/data.js"> </script>
+		<center><font color="red">Dies Ist <b>NICHT</b> Die Originale Version, sondern eine Deutsche Übersetzte! Die Originale Findest du <a href="https://thorinair.github.io/Stardew-Profits/">Hier</a>.</font><center/>
+		<div class="graph">
+			<script src="js/main.js"> </script>
+		</div>
+
+		<div class="options">
+		<table cellspacing="2">
+		
+			<tr>
+				<td>Jahreszeit:</td>
+				<td>
+					<select id="select_season" onChange="rebuild()">
+						<option value="0" selected="true">Frühling (28 tage)</option>
+						<option value="1">Sommer (28 tage)</option>
+						<option value="2">Herbst (28 tage)</option>
+						<option value="3">Gewächshaus</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr id="current_day_row">
+				<td>Aktueller tag:</td>
+				<td><input type="number" id="current_day" value="1" onChange="refresh()"/></td>
+			</tr>
+
+			<tr id="number_days_row">
+				<td>Number of days:</td>
+				<td><input type="number" id="number_days" value="28" onChange="refresh()"/></td>
+			</tr>
+
+			<tr>
+				<td>Produktions typ:</td>
+				<td>
+					<select id="select_produce" onChange="refresh()">
+						<option value="0" selected="true">Roh</option>
+						<option value="1">Einmachglas</option>
+						<option value="2">Fass</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Anzahl der Saat:</td>
+				<td><input type="number" id="number_planted" value="1" onChange="refresh()"/></td>
+			</tr>
+
+			<tr>
+				<td>Durchschnittl. profit:</td>
+				<td><input type="checkbox" id="check_average" onChange="refresh()" /></td>
+			</tr>
+
+			<tr id="cross_season_row">
+				<td>Saison Überdauern:</td>
+				<td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
+			</tr>
+
+		</table>
+
+		<table cellspacing="2">
+
+			<tr>
+				<td>Saat herkunft:</td>
+				<td>
+					<input type="checkbox" id="check_seedsPierre" onChange="rebuild()" checked="true" /> <label for="check_seedsPierre">Pierre</label><br />
+					<input type="checkbox" id="check_seedsJoja" onChange="rebuild()" checked="true" /> <label for="check_seedsJoja">Joja</label><br />
+					<input type="checkbox" id="check_seedsSpecial" onChange="rebuild()" checked="true" /> <label for="check_seedsSpecial">Special</label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Saat Bezahlt:</td>
+				<td><input type="checkbox" id="check_buySeed" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Dünger:</td>
+				<td>
+					<select id="select_fertilizer" onChange="refresh()">
+						<option value="0" selected="true">Keiner</option>
+						<option value="1">Standarddünger</option>
+						<option value="2">Qualitätsdünger</option>
+						<option value="3">Geschwind-Wachs</option>
+						<option value="4">Deluxe Wachs</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Dünger bezahlt:</td>
+				<td><input type="checkbox" id="check_buyFert" onChange="refresh()" /></td>
+			</tr>
+
+		</table>
+
+		<table cellspacing="2">
+
+			<tr>
+				<td>Hofarbeit level:</td>
+				<td><input type="number" id="number_level" value="0" onChange="refresh()"/></td>
+			</tr>
+
+			<tr>
+				<td>Level 5 skill:</td>
+				<td>
+					<input type="checkbox" id="check_skillsTill" onChange="refresh()" /> Tiller<br />
+				</td>
+			</tr>
+
+			<tr>
+				<td>Level 10 skill:</td>
+				<td>
+					<select id="select_skills" onChange="refresh()">
+						<option value="0" selected="true">Keiner</option>
+						<option value="1">Landwirt</option>
+						<option value="2">Handwerker</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Zeige extra info:</td>
+				<td><input type="checkbox" id="check_extra" onChange="refresh()" checked="true" /></td>
+			</tr>
+
+			<tr>
+				<!--<td id="tdhelp" colspan="2"><div id="divhelp"><a href="help.html">Help</a></div></td>-->
+			</tr>
+
+		</table>	
+		</div>
+
+		<div class="footer">
+			<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.11</a> &copy; <a href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by <a href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | v1.2.1 | Website translated to German by <a href="https://twitter.com/Percdye7" target="_blank">Percdye7</a></p>
+		</div>
+
+		<script src="js/time.js"> </script>
+		<script>initial();</script>
+	</body>
+</html>
